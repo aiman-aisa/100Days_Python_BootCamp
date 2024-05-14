@@ -24,9 +24,7 @@ while len(correct_state) < 50:
     
     if answer_state == "Exit":
         missing_states = []
-        for state in states:
-            if state not in correct_state:
-                missing_states.append(state)
+        missing_states = [state for state in states if state not in correct_state]
         new_data = pd.DataFrame(missing_states)
         new_data.to_csv(r"Day-25-Pandas-csv\us-states-game\states_to_learn.csv")
         break
