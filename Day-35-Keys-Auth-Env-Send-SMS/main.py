@@ -1,5 +1,5 @@
 
-from secrets import api_key
+from config import api_key
 import requests
 
 parameters = {
