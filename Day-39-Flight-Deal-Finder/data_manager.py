@@ -22,3 +22,17 @@ class DataManager:
         #pprint(data)
         
         return self.destination_data
+    
+    def update_destination_data(self):
+        for city in self.destination_data:
+            new_data = {
+                "price":{
+                    "iataCode": city["iataCode"]
+                }
+            }
+            response = requests.put(
+                url=f"{SHEET_ENDPOINT}/{city['id']}",
+                json=new_data,
+                headers=self.headers
+                )
+            print(response.text)
